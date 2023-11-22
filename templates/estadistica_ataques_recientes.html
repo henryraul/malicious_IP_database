@@ -1,0 +1,223 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Estadística de los ataques más recientes</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item active">Estadística de los ataques más recientes</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Últimas direcciones IP atacantes</h3>
+              <div class="card-tools">
+
+                <button type="button" class="btn btn-tool"
+                  data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+
+              <ul>
+                {% for ip in direccionesip %}
+                <li>
+                  {{ip.direccion_IP}} -- ({{ip.pais}})
+                </li>
+                {% endfor %}
+              </ul>
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              Existen {{total_dirIP}} direcciones IP registradas
+            </div>
+            <!-- /.card-footer -->
+          </div>
+          <!-- /.card -->
+
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Últimas URL atacadas</h3>
+              <div class="card-tools">
+
+                <button type="button" class="btn btn-tool"
+                  data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+
+              <ul>
+                {% for url in urls %}
+                <li>
+                  {{url.url}}
+                </li>
+                {% endfor %}
+              </ul>
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              Existen {{totalurl}} URLs registradas
+            </div>
+            <!-- /.card-footer -->
+          </div>
+          <!-- /.card -->
+
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Últimos códigos de respuesta generados en ataques</h3>
+              <div class="card-tools">
+
+                <button type="button" class="btn btn-tool"
+                  data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+
+              <ul>
+                {% for cr in codigo_respuesta_HTTP %}
+                <li>
+                  {{cr.codigo_respuesta_HTTP}}
+                </li>
+                {% endfor %}
+              </ul>
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              Existen {{totalcodigo_respuesta_HTTP}} códigos de respuesta HTTP
+              registrados
+            </div>
+            <!-- /.card-footer -->
+          </div>
+
+        </div>
+        <!-- /.col-md-6 -->
+        <div class="col-lg-6">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Últimos países atacantes</h3>
+              <div class="card-tools">
+
+                <button type="button" class="btn btn-tool"
+                  data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+
+              <ul>
+                {% for pais in paises %}
+                <li>
+                  {{pais.pais}}
+                </li>
+                {% endfor %}
+              </ul>
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              Existen {{totalpaises}} países registrados
+            </div>
+            <!-- /.card-footer -->
+          </div>
+          <!-- /.card -->
+
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Últimos métodos HTTP empleados en ataques</h3>
+              <div class="card-tools">
+
+                <button type="button" class="btn btn-tool"
+                  data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+
+              <ul>
+                {% for m in metodoshttp %}
+                <li>
+                  {{m.metodo_HTTP}}
+                </li>
+                {% endfor %}
+              </ul>
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              Existen {{totalmetodoshttp}} métodos HTTP registrados
+            </div>
+            <!-- /.card-footer -->
+          </div>
+
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Últimos agentes de usuarios empleados en ataques</h3>
+              <div class="card-tools">
+
+                <button type="button" class="btn btn-tool"
+                  data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+
+              <ul>
+                {% for au in agente_usuario %}
+                <li>
+                  {{au.agente_usuario}}
+                </li>
+                {% endfor %}
+              </ul>
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              Existen {{totalagente_usuario}} agentes de usuarios registrados
+            </div>
+            <!-- /.card-footer -->
+          </div>
+
+          <!-- /.card -->
+        </div>
+        <!-- /.col-md-6 -->
+      </div>
+      <!-- /.row -->
+
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% endblock%}
